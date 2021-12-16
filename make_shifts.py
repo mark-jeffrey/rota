@@ -4,14 +4,14 @@ import pandas as pd
 from cal_setup import get_calendar_service
 
 def main():
-    # Creates google calendar events for each shift from a rota spreadsheet
+    # Create google calendar events for shifts in an excel rota file
 
-    # DEFINE USER VARIABLES
+    #DEFINE USER VARIABLES
     shift_col = 'MJ'
     date_col = 'Date'
     location = 'Peterborough City Hospital, Edith Cavell Campus, Bretton Gate, Peterborough PE3 9GZ'
     rota_file = 'rota.xlsx'
-    calendarID = 'hjknaldldgel83bbuuv6lb7pgc@group.calendar.google.com'
+    calendarID = '2iu6o6fng40707bsettq7doc40@group.calendar.google.com'
 
     # DEFINE SHIFT TYPES
     # Alias = how the shift appears in shift_col
