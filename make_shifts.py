@@ -7,24 +7,27 @@ def main():
     # Create google calendar events for shifts in an excel rota file
 
     #DEFINE USER VARIABLES
-    shift_col = 'MJ'
+    shift_col = 'Murphy'
     date_col = 'Date'
-    location = 'Peterborough City Hospital, Edith Cavell Campus, Bretton Gate, Peterborough PE3 9GZ'
+    location = 'Bedford Hospital, South Wing, Kempston Rd, Bedford MK42 9DJ'
     rota_file = 'rota.xlsx'
-    calendarID = '2iu6o6fng40707bsettq7doc40@group.calendar.google.com'
+    calendarID = 'pt8r0lfboeg4mvp3fatr9vm9u4@group.calendar.google.com'
 
     # DEFINE SHIFT TYPES
     # Alias = how the shift appears in shift_col
     # Name = what you want the name of the created events to be for that shift
-    shift1 = {'alias': 'B', 'name': 'Long'}
-    shift2 = {'alias': 'A', 'name': 'Short'}
-    shift3 = {'alias': 'C', 'name': 'Night'}
+    shift1 = {'alias': 'i', 'name': 'Long ICU'}
+    shift2 = {'alias': 'in', 'name': 'Night ICU'}
+    shift3 = {'alias': 'm', 'name': 'Long Obs'}
+    shift4 = {'alias': 'mn', 'name': 'Night Obs'}
+    shift5 = {'alias': 'w', 'name': 'Short'}
+    shift6 = {'alias': 'BH', 'name': 'Bank Holiday'}
 
     # Read rota file and parse dates
-    rota = pd.read_excel(rota_file, parse_dates=True)
+    rota = pd.read_excel(rota_file, parse_dates=True,)
 
     # List of dicts for shift types
-    shift_list = [shift1, shift2, shift3]
+    shift_list = [shift1, shift2, shift3, shift4, shift5, shift6]
 
     # Initialize empty dict for dict of shift dates
     shift_dates = {}
