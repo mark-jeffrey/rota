@@ -14,7 +14,7 @@ def main():
     shift_col = '<name>'
     date_col = '<date>'
     location = '<address>'
-    rota_file = '<rota.xlsx>'
+    rota_file = 'rota.xlsx'
     calendarID = '<calender_ID>@group.calendar.google.com'
 
     # DEFINE SHIFT TYPES
