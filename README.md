@@ -36,4 +36,4 @@ If you need more than 6 shift types, just add these to the 'shift_list' variable
 ### Run make_shifts.py
 The first time you will be asked to authenticate via google. This will create a token.json in the current directory. Delete this after use if you do not plan to use it again soon as this will expire. Credentials.json file does not need to be refreshed. 
 
-I'd suggest creating a 'test' calender before running in case of an error so the whole calender can be deleted in the event of an error, rather than having to delete a potentially large number of individual events.
+I'd suggest creating a 'test' calender first so the whole calender can be deleted in the event of an error, rather than having to delete a potentially large number of individual events.
