@@ -1,26 +1,30 @@
+# Script to create google calender events for work shifts from and excel file
+'''token.json will expire, delete prior to running to re-generate'''
+
 from __future__ import print_function
 import datetime as dt
 import pandas as pd
 from cal_setup import get_calendar_service
 
+
 def main():
     # Create google calendar events for shifts in an excel rota file
 
-    #DEFINE USER VARIABLES
-    shift_col = 'Murphy'
-    date_col = 'Date'
-    location = 'Bedford Hospital, South Wing, Kempston Rd, Bedford MK42 9DJ'
-    rota_file = 'rota.xlsx'
-    calendarID = 'pt8r0lfboeg4mvp3fatr9vm9u4@group.calendar.google.com'
+    # DEFINE USER VARIABLES
+    shift_col = '<name>'
+    date_col = '<date>'
+    location = '<address>'
+    rota_file = '<rota.xlsx>'
+    calendarID = '<calender_ID>@group.calendar.google.com'
 
     # DEFINE SHIFT TYPES
     # Alias = how the shift appears in shift_col
     # Name = what you want the name of the created events to be for that shift
-    shift1 = {'alias': 'i', 'name': 'Long ICU'}
-    shift2 = {'alias': 'in', 'name': 'Night ICU'}
-    shift3 = {'alias': 'm', 'name': 'Long Obs'}
-    shift4 = {'alias': 'mn', 'name': 'Night Obs'}
-    shift5 = {'alias': 'w', 'name': 'Short'}
+    shift1 = {'alias': 'A', 'name': 'Day'}
+    shift2 = {'alias': 'B', 'name': 'Long Day'}
+    shift3 = {'alias': 'C', 'name': 'Night'}
+    shift4 = {'alias': 'L', 'name': 'Leave'}
+    shift5 = {'alias': 'S', 'name': 'Study Leave'}
     shift6 = {'alias': 'BH', 'name': 'Bank Holiday'}
 
     # Read rota file and parse dates
@@ -55,13 +59,15 @@ def main():
             },
         }
 
-        event_result = service.events().insert(calendarId=calendarID, body=event).execute()
+        event_result = service.events().insert(
+            calendarId=calendarID, body=event).execute()
         print(f'Event for {shift} shift created on {date}')
 
     # tuple unpack shift_dates and iterate through creating calendar events
     for shift, dates in shift_dates.items():
         for date in dates:
             create_shift(date, shift)
+
 
 if __name__ == '__main__':
     main()
