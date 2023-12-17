@@ -9,6 +9,8 @@ google-auth-httplib2 = "*"
 google-auth-oauthlib = "*"
 pandas = "*"
 openpyxl = "*"
+ipykernel = "*"
+matplotlib = "*"
 
 [dev-packages]
 
